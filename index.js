@@ -14,14 +14,26 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
-  .then(self => {
+  .then((self) => {
     console.log(`Connected to the database: "${self.connection.name}"`);
     // Before adding any documents to the database, let's delete all previous entries
     return self.connection.dropDatabase();
   })
   .then(() => {
     // Run your code here, after you have insured that the connection was made
+    console.log('Connection has been established');
+    return Recipe.create({
+      title: 'Hainanese Chicken Rice',
+      ingredients: ['chicken', 'rice', 'cucumber', 'garlic'],
+      cuisine: 'Chinese',
+      dishType: 'main_course',
+      duration: 240
+    });
+    //console.log('Title of recipe:', data.title);
   })
-  .catch(error => {
+  .then((data) => {
+    console.log('Title of recipe:', data, data.title);
+  })
+  .catch((error) => {
     console.error('Error connecting to the database', error);
   });
