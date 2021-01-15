@@ -41,6 +41,13 @@ mongoose
     data.forEach((recipe) => {
       console.log(recipe.title);
     });
+    return Recipe.findOneAndUpdate(
+      { title: 'Rigatoni alla Genovese' },
+      { duration: 100 }
+    );
+  })
+  .then((data) => {
+    console.log('Recipe updated');
   })
   .catch((error) => {
     console.error('Error connecting to the database', error);
