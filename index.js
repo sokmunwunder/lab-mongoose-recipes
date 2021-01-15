@@ -52,6 +52,10 @@ mongoose
   })
   .then((data) => {
     console.log('Recipe deleted');
+    return mongoose.disconnect();
+  })
+  .then(() => {
+    console.log('Connection has been disrupted');
   })
   .catch((error) => {
     console.error('Error connecting to the database', error);
