@@ -37,7 +37,10 @@ mongoose
     console.log('Title of recipe:', data, data.title);
   })*/
   .then((data) => {
-    console.log('Titles of recipes:', data.title);
+    console.log('Recipes were loaded:');
+    data.forEach((recipe) => {
+      console.log(recipe.title);
+    });
   })
   .catch((error) => {
     console.error('Error connecting to the database', error);
