@@ -22,17 +22,22 @@ mongoose
   .then(() => {
     // Run your code here, after you have insured that the connection was made
     console.log('Connection has been established');
-    return Recipe.create({
+    /*return Recipe.create({
       title: 'Hainanese Chicken Rice',
       ingredients: ['chicken', 'rice', 'cucumber', 'garlic'],
       cuisine: 'Chinese',
       dishType: 'main_course',
       duration: 240
     });
-    //console.log('Title of recipe:', data.title);
+    //console.log('Title of recipe:', data.title);*/
+    return Recipe.create(data);
+    //console.log('Titles of recipes:', data.title);
   })
-  .then((data) => {
+  /*.then((data) => {
     console.log('Title of recipe:', data, data.title);
+  })*/
+  .then((data) => {
+    console.log('Titles of recipes:', data.title);
   })
   .catch((error) => {
     console.error('Error connecting to the database', error);
